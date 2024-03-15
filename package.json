@@ -6,11 +6,17 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "sass src/scss:dist/css",
-    "watch": "sass src/scss:dist/css --watch",
-    "start": "live-server",
+    "watch": "sass --watch src/scss:dist/css & live-server",
+    "start": "npm run build && live-server",
     "dev": "npm-run-all --parallel watch start"
   },
-  "keywords": [],
+  "keywords": [
+    "CSS",
+    "Frameworks",
+    "Bootstrap",
+    "SCSS",
+    "SASS"
+  ],
   "author": "",
   "license": "ISC",
   "dependencies": {
