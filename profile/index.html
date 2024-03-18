@@ -19,13 +19,10 @@
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
               <li class="nav-item">
-                <a class="nav-link active text-white" aria-current="page" href="/">Home</a>
+                <a class="nav-link active text-white" aria-current="page" href="/listings/">Home</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link text-white" href="/profile/">My profile</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link text-white" href="/listings/">Listings</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link text-white" href="/listing/create/">Create listing</a>
@@ -39,7 +36,30 @@
         </div>
       </nav>
     </header>
-    <main></main>
+    <main class="d-flex align-items-center text-white">
+      <div class="container-fluid my-5 py-5">
+        <div class="row justify-content-center">
+          <div class="col-md-4">
+            <div class="d-flex justify-content-evenly" id="profile-container"></div>
+          </div>
+          <div class="col-md-9 my-5 py-5">
+            <div class="d-flex">
+              <a href="/listing/create/" class="me-2"><button class="btn btn-success">Create a new listing</button></a>
+              <a href="/profile/edit/" class="me-2"><button class="btn btn-success">Edit profile</button></a>
+              <a href=""><button class="btn btn-success">Log Out</button></a>
+            </div>
+            <div class="d-flex justify-content-between align-items-center mt-5">
+              <h1>Your listings</h1>
+              <select class="btn btn-primary" type="button" id="selection" aria-expanded="false">
+                <option value="newest">Newest</option>
+                <option value="oldest">Oldest</option>
+              </select>
+            </div>
+            <div class="listings" id="listing"></div>
+          </div>
+        </div>
+      </div>
+    </main>
     <footer class="fixed-bottom text-white">
       <div class="justify-content-center border-top p-2">
         <p class="text-center">© 2024 Northern Auction</p>

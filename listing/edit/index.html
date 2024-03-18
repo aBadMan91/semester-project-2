@@ -25,9 +25,6 @@
                 <a class="nav-link text-white" href="/profile/">My profile</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link text-white" href="/listings/">Listings</a>
-              </li>
-              <li class="nav-item">
                 <a class="nav-link text-white" href="/listing/create/">Create listing</a>
               </li>
             </ul>
@@ -39,7 +36,34 @@
         </div>
       </nav>
     </header>
-    <main></main>
+    <main class="d-flex justify-content-center align-items-center min-vh-100 text-white">
+      <div class="container-fluid my-5 py-5">
+        <div class="row justify-content-center">
+          <div class="col-12 col-md-6">
+            <form id="editListing">
+              <div class="form-group mb-3">
+                <label for="">Title: *</label>
+                <input class="form-control" type="text" name="title" required />
+              </div>
+              <div class="form-group mb-3">
+                <label for="">Body: *</label>
+                <textarea class="form-control" name="body" required></textarea>
+              </div>
+              <div class="form-group mb-3">
+                <label for="">Tags:</label>
+                <input class="form-control" type="text" name="tags" />
+              </div>
+              <div class="form-group mb-3">
+                <label for="">Media:</label>
+                <input class="form-control" type="url" name="media" />
+              </div>
+              <button class="btn btn-success">Update Listing</button>
+              <button class="btn btn-danger" id="deleteListing">Delete Listing</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </main>
     <footer class="fixed-bottom text-white">
       <div class="justify-content-center border-top p-2">
         <p class="text-center">© 2024 Northern Auction</p>

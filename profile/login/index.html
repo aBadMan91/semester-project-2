@@ -22,13 +22,10 @@
                 <a class="nav-link active text-white" aria-current="page" href="/">Home</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link text-white" href="/profile/">My profile</a>
+                <a class="nav-link text-white" href="/profile/login">My profile</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link text-white" href="/listings/">Listings</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link text-white" href="/listing/create/">Create listing</a>
+                <a class="nav-link text-white" href="/profile/login">Create listing</a>
               </li>
             </ul>
             <form class="d-flex" role="search" id="search-form">
@@ -39,7 +36,29 @@
         </div>
       </nav>
     </header>
-    <main></main>
+    <main class="d-flex justify-content-center align-items-center min-vh-100 text-white">
+      <div class="container-fluid my-5 py-5">
+        <div class="row justify-content-center">
+          <div class="col-md-4">
+            <form id="loginForm">
+              <div class="form-group mb-3">
+                <h1 class="h3 mb-3">Please sign in with your registered “stud.noroff.no” email.</h1>
+                <label for="">Email:</label>
+                <input class="form-control" type="email" name="email" required pattern="^[\w\-.]+@(stud\.)?noroff\.no$" title="@(stud.)noroff.no are the only domains allowed to login." />
+              </div>
+              <div class="form-group mb-3">
+                <label for="">Password:</label>
+                <input class="form-control" type="password" name="password" required minlength="8" />
+              </div>
+              <div class="d-flex justify-content-evenly">
+                <button class="btn btn-lg btn-primary btn-block">Login</button>
+                <a href="/profile/register/"><button class="btn btn-lg btn-secondary btn-block" type="button">Register</button></a>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </main>
     <footer class="fixed-bottom text-white">
       <div class="justify-content-center border-top p-2">
         <p class="text-center">© 2024 Northern Auction</p>

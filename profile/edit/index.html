@@ -19,13 +19,10 @@
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
               <li class="nav-item">
-                <a class="nav-link active text-white" aria-current="page" href="/">Home</a>
+                <a class="nav-link active text-white" aria-current="page" href="/listings/">Home</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link text-white" href="/profile/">My profile</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link text-white" href="/listings/">Listings</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link text-white" href="/listing/create/">Create listing</a>
@@ -39,7 +36,33 @@
         </div>
       </nav>
     </header>
-    <main></main>
+    <main class="d-flex justify-content-center align-items-center min-vh-100 text-white">
+      <div class="container-fluid my-5 py-5">
+        <div class="row justify-content-center">
+          <div class="col-md-4">
+            <form id="editProfile">
+              <div class="form-group mb-3">
+                <label for="">Name:</label>
+                <input class="form-control" type="text" disabled name="name" />
+              </div>
+              <div class="form-group mb-3">
+                <label for="">Email:</label>
+                <input class="form-control" type="email" disabled name="email" />
+              </div>
+              <div class="form-group mb-3">
+                <label for="">Banner:</label>
+                <input class="form-control" type="url" name="banner" />
+              </div>
+              <div class="form-group mb-3">
+                <label for="">Avatar:</label>
+                <input class="form-control" type="url" name="avatar" />
+              </div>
+              <button class="btn btn-success">Update Profile</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </main>
     <footer class="fixed-bottom text-white">
       <div class="justify-content-center border-top p-2">
         <p class="text-center">© 2024 Northern Auction</p>
