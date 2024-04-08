@@ -22,7 +22,9 @@ export default function router() {
       break;
     case "/profile/edit/":
     case "/profile/edit/index.html":
-      listeners.setUpdateProfileListener();
+      listeners.setUpdateProfileFormListener();
       break;
   }
+
+  listeners.setLogoutButtonListener();
 }

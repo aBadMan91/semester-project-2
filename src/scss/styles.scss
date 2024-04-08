@@ -19,3 +19,8 @@ header,
 footer {
   background-color: $footer-color;
 }
+
+.form-control:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}

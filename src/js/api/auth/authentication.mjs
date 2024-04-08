@@ -1,11 +1,11 @@
-import { API_AUCTION_URL } from "../constants.mjs";
+import { API_HOST_URL } from "../constants.mjs";
 import * as storage from "../../storage/index.mjs";
 
 const action = "/auth/login";
 const method = "post";
 
 export async function login(profile) {
-  const loginURL = API_AUCTION_URL + action;
+  const loginURL = API_HOST_URL + action;
   const body = JSON.stringify(profile);
 
   const response = await fetch(loginURL, {
@@ -20,11 +20,12 @@ export async function login(profile) {
     throw new Error(`Login failed: ${response.status}`);
   }
 
-  const { accessToken, ...user } = await response.json();
+  const responseData = await response.json();
+  const { accessToken, ...data } = responseData.data;
 
-  storage.saveToken("token", accessToken);
+  storage.save("token", accessToken);
 
-  storage.save("profile", user);
+  storage.save("profile", data);
 
   window.location.href = "/profile/";
 }

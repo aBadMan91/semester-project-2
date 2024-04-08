@@ -4,7 +4,7 @@ import { authFetch } from "../authFetch.mjs";
 const action = "/listings";
 const method = "delete";
 
-export async function deleteListing(id) {
+export async function removeListing(id) {
   if (!id) {
     throw new Error("Delete listing requires a listing ID");
   }

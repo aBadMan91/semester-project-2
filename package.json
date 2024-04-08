@@ -21,7 +21,8 @@
   "license": "ISC",
   "dependencies": {
     "bootstrap": "^5.3.3",
-    "bootstrap-icons": "^1.11.3"
+    "bootstrap-icons": "^1.11.3",
+    "dotenv": "^16.4.5"
   },
   "devDependencies": {
     "live-server": "^1.2.2",
