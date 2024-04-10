@@ -6,6 +6,7 @@ export function headers() {
   return {
     "Content-Type": "application/json",
     Authorization: `Bearer ${token}`,
+    "X-Noroff-API-Key": import.meta.env.VITE_NOROFF_API_KEY,
   };
 }
 

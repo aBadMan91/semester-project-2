@@ -5,7 +5,7 @@ export async function fetchProfileData() {
   const { name } = load("profile");
   const profile = await getProfile(name);
 
-  const profileContainer = document.querySelector("profile-container");
+  const profileContainer = document.querySelector("#profile-container");
   const profileHtml = createProfileHtml(profile);
   profileContainer.appendChild(profileHtml);
 
@@ -19,5 +19,37 @@ export function createProfileHtml(profile) {
   profileContainer.classList.add("profileCard");
 
   const card = document.createElement("div");
-  card.classList.add("card");
+  card.classList.add("card", "border-0");
+  card.style.backgroundColor = "inherit";
+
+  const img = document.createElement("img");
+  img.classList.add("card-img-top");
+  img.src = profile.data.avatar.url;
+  img.alt = "Profile picture";
+  img.style.borderRadius = "0.25rem";
+
+  const cardBody = document.createElement("div");
+  cardBody.classList.add("card-body", "text-center");
+
+  const name = document.createElement("h5");
+  name.classList.add("card-title", "text-white", "fw-bold");
+  name.textContent = profile.data.name;
+
+  const email = document.createElement("p");
+  email.classList.add("card-title", "text-white", "fst-italic");
+  email.textContent = profile.data.email;
+
+  const bio = document.createElement("p");
+  bio.classList.add("card-text", "text-white");
+  bio.textContent = profile.data.bio;
+
+  const credits = document.createElement("p");
+  credits.classList.add("card-text", "text-white");
+  credits.innerHTML = "Credits: <span class='fst-italic'>" + profile.data.credits + "</span>";
+
+  cardBody.append(name, email, bio, credits);
+  card.append(img, cardBody);
+  profileContainer.appendChild(card);
+
+  return profileContainer;
 }
