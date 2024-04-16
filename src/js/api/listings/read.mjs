@@ -4,7 +4,7 @@ import { authFetch } from "../authFetch.mjs";
 const action = "/listings";
 
 export async function getListings(sort = "newest") {
-  let updateListingUrl = `${API_AUCTION_URL}${action}?_seller=true&_bids=true&_active=true`;
+  let updateListingUrl = `${API_AUCTION_URL}${action}?_seller=true&_active=true`;
 
   if (sort === "newest") {
     updateListingUrl += "&sort=updated&sortOrder=desc";
@@ -22,7 +22,7 @@ export async function getListing(id) {
     throw new Error("Get listing requires id");
   }
 
-  const getListingUrl = `${API_AUCTION_URL}${action}/${id}?_seller=true&_bids=true&_active=true`;
+  const getListingUrl = `${API_AUCTION_URL}${action}/${id}?_seller=true&_active=true`;
 
   const response = await authFetch(getListingUrl);
 

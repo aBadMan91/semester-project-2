@@ -17,7 +17,6 @@ export async function setUpdateProfileFormListener() {
 
     form.bio.value = profile.data.bio;
     form.avatar.value = profile.data.avatar.url;
-    form.banner.value = profile.data.banner.url;
 
     button.disabled = false;
 
@@ -30,7 +29,6 @@ export async function setUpdateProfileFormListener() {
       profile.name = name;
       profile.email = email;
       profile.avatar = { url: profile.avatar };
-      profile.banner = { url: profile.banner };
 
       updateProfile(profile)
         .then(() => {
