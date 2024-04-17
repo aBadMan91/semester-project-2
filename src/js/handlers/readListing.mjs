@@ -55,6 +55,10 @@ export function createListingHtml(listing) {
   endDateHeading.textContent = `Listing ending: ${formattedEndDate}`;
   listingContent.appendChild(endDateHeading);
 
+  const bids = document.createElement("p");
+  bids.textContent = `Number of bids: ${listing.data._count.bids}`;
+  listingContent.appendChild(bids);
+
   const body = document.createElement("p");
   body.innerText = listing.data.description;
   listingContent.appendChild(body);

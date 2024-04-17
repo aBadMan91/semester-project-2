@@ -2,7 +2,7 @@ import { API_AUCTION_URL } from "../constants.mjs";
 import { authFetch } from "../authFetch.mjs";
 
 const action = "/listings";
-const method = "listing";
+const method = "post";
 
 export async function createListing(listingData) {
   if (listingData.tags) {
