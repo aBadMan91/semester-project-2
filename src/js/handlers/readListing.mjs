@@ -41,6 +41,10 @@ export function createListingHtml(listing) {
   heading.textContent = `${listing.data.title}`;
   listingContent.appendChild(heading);
 
+  const seller = document.createElement("p");
+  seller.innerText = `Seller: ${listing.data.seller.name}`;
+  listingContent.appendChild(seller);
+
   const startDateHeading = document.createElement("h2");
   const startDate = new Date(listing.data.created);
   const startOptions = { year: "numeric", month: "long", day: "numeric", hour: "2-digit", minute: "2-digit" };
@@ -59,11 +63,30 @@ export function createListingHtml(listing) {
   bids.textContent = `Number of bids: ${listing.data._count.bids}`;
   listingContent.appendChild(bids);
 
+  const bidInput = document.createElement("input");
+  bidInput.type = "number";
+  bidInput.min = "0";
+  bidInput.placeholder = "Enter your bid";
+  bidInput.classList.add("form-control");
+  listingContent.appendChild(bidInput);
+
+  const bidButton = document.createElement("button");
+  bidButton.classList.add("btn", "btn-primary");
+  bidButton.innerText = "Bid Now";
+
+  bidButton.addEventListener("click", () => {
+    const bidAmount = bidInput.value;
+    if (bidAmount === "" || isNaN(bidAmount) || bidAmount < 0) {
+      console.log("Invalid bid amount");
+      return;
+    }
+    console.log(`Bid button clicked for listing: ${listing.data.id}, bid amount: ${bidAmount}`);
+    bidInput.value = "";
+  });
+
+  listingContent.appendChild(bidButton);
+
   const body = document.createElement("p");
   body.innerText = listing.data.description;
   listingContent.appendChild(body);
-
-  const seller = document.createElement("p");
-  seller.innerText = `Seller: ${listing.data.seller.name}`;
-  listingContent.appendChild(seller);
 }

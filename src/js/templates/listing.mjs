@@ -16,9 +16,9 @@ export function listingTemplate(listingData) {
   title.innerText = `${listingData.title}`;
   title.style.textDecoration = "underline";
 
-  const text1 = document.createElement("p");
-  text1.classList.add("card-text");
-  text1.innerText = `By seller: ${listingData.seller.name}`;
+  const sellerName = document.createElement("p");
+  sellerName.classList.add("card-text");
+  sellerName.innerText = `By seller: ${listingData.seller.name}`;
 
   const startDateText = document.createElement("p");
   startDateText.classList.add("card-text");
@@ -34,7 +34,7 @@ export function listingTemplate(listingData) {
   const formattedEndDate = endDate.toLocaleString(undefined, endOptions);
   endDateText.innerText = `Listing ending: ${formattedEndDate}`;
 
-  cardBody.append(title, text1, startDateText, endDateText);
+  cardBody.append(title, sellerName, startDateText, endDateText);
 
   if (listingData.media && listingData.media.length > 0) {
     const img = document.createElement("img");
