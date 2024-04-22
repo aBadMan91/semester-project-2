@@ -1,5 +1,6 @@
 import { API_AUCTION_URL } from "../api/constants.mjs";
 import { getListing } from "../api/listings/read.mjs";
+import { placeBid } from "../api/listings/bid.mjs";
 
 const listingContainer = document.querySelector(".container");
 const queryString = window.location.search;
@@ -74,13 +75,20 @@ export function createListingHtml(listing) {
   bidButton.classList.add("btn", "btn-primary");
   bidButton.innerText = "Bid Now";
 
-  bidButton.addEventListener("click", () => {
-    const bidAmount = bidInput.value;
-    if (bidAmount === "" || isNaN(bidAmount) || bidAmount < 0) {
-      console.log("Invalid bid amount");
+  bidButton.addEventListener("click", async () => {
+    const bidAmount = Number(bidInput.value);
+    if (isNaN(bidAmount) || bidAmount < 0) {
+      alert("Please enter a valid bid amount greater than 0");
       return;
     }
-    console.log(`Bid button clicked for listing: ${listing.data.id}, bid amount: ${bidAmount}`);
+
+    try {
+      await placeBid(listing.data.id, bidAmount);
+      alert(`Bid placed successfully for listing: ${listing.data.title}, your bid amount: ${bidAmount}`);
+    } catch (error) {
+      alert("An error occurred while placing your bid. Please try again.");
+    }
+
     bidInput.value = "";
   });
 
