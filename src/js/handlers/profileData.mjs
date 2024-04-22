@@ -16,7 +16,7 @@ fetchProfileData();
 
 export function createProfileHtml(profile) {
   const profileContainer = document.createElement("div");
-  profileContainer.classList.add("profileCard");
+  profileContainer.classList.add("profileCard", "col-md-9");
 
   const card = document.createElement("div");
   card.classList.add("card", "border-0");

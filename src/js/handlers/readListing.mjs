@@ -64,16 +64,21 @@ export function createListingHtml(listing) {
   bids.textContent = `Number of bids: ${listing.data._count.bids}`;
   listingContent.appendChild(bids);
 
+  const bidInputDiv = document.createElement("div");
   const bidInput = document.createElement("input");
   bidInput.type = "number";
   bidInput.min = "0";
   bidInput.placeholder = "Enter your bid";
-  bidInput.classList.add("form-control");
-  listingContent.appendChild(bidInput);
+  bidInput.classList.add("form-control-sm", "my-2");
+  bidInputDiv.appendChild(bidInput);
+  listingContent.appendChild(bidInputDiv);
 
+  const bidButtonDiv = document.createElement("div");
   const bidButton = document.createElement("button");
-  bidButton.classList.add("btn", "btn-primary");
+  bidButton.classList.add("btn", "btn-primary", "mb-4");
   bidButton.innerText = "Bid Now";
+  bidButtonDiv.appendChild(bidButton);
+  listingContent.appendChild(bidButtonDiv);
 
   bidButton.addEventListener("click", async () => {
     const bidAmount = Number(bidInput.value);
@@ -91,8 +96,6 @@ export function createListingHtml(listing) {
 
     bidInput.value = "";
   });
-
-  listingContent.appendChild(bidButton);
 
   const body = document.createElement("p");
   body.innerText = listing.data.description;

@@ -25,14 +25,14 @@ export function listingTemplate(listingData) {
   const startDate = new Date(listingData.created);
   const startOptions = { year: "numeric", month: "long", day: "numeric", hour: "2-digit", minute: "2-digit" };
   const formattedStartDate = startDate.toLocaleString(undefined, startOptions);
-  startDateText.innerText = `Listing Created: ${formattedStartDate}`;
+  startDateText.innerText = `Created: ${formattedStartDate}`;
 
   const endDateText = document.createElement("p");
   endDateText.classList.add("card-text");
   const endDate = new Date(listingData.endsAt);
   const endOptions = { year: "numeric", month: "long", day: "numeric", hour: "2-digit", minute: "2-digit" };
   const formattedEndDate = endDate.toLocaleString(undefined, endOptions);
-  endDateText.innerText = `Listing ending: ${formattedEndDate}`;
+  endDateText.innerText = `Ending: ${formattedEndDate}`;
 
   cardBody.append(title, sellerName, startDateText, endDateText);
 
