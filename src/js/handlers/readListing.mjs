@@ -91,7 +91,7 @@ export function createListingHtml(listing) {
       await placeBid(listing.data.id, bidAmount);
       alert(`Bid placed successfully for listing: ${listing.data.title}, your bid amount: ${bidAmount}`);
     } catch (error) {
-      alert("An error occurred while placing your bid. Please try again.");
+      alert(error.message);
     }
 
     bidInput.value = "";

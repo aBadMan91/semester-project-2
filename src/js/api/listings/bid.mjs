@@ -16,7 +16,8 @@ export async function placeBid(listingId, bidAmount) {
   });
 
   if (!response.ok) {
-    throw new Error(`An error occurred while placing the bid: ${response.status}`);
+    const errorResponse = await response.json();
+    throw new Error(errorResponse.errors[0].message);
   }
 
   return await response.json();

@@ -3,13 +3,16 @@ import * as listingMethods from "../api/listings/index.mjs";
 
 export async function searchListings(searchTerm) {
   const listings = await listingMethods.getListings();
-  const filteredListings = listings.filter((listing) => listing.title.toLowerCase().includes(searchTerm.toLowerCase()));
 
-  const container = document.querySelector("#listing");
+  if (listings && Array.isArray(listings.data)) {
+    const filteredListings = listings.data.filter((listing) => listing.title.toLowerCase().includes(searchTerm.toLowerCase()));
 
-  if (container) {
-    container.innerHTML = "";
-    templates.renderListingTemplates(filteredListings, container);
+    const container = document.querySelector("#listing");
+
+    if (container) {
+      container.innerHTML = "";
+      templates.renderListingTemplates(filteredListings, container);
+    }
   }
 }
 
