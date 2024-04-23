@@ -1,11 +1,20 @@
 import * as templates from "../templates/index.mjs";
 import * as listingMethods from "../api/listings/index.mjs";
 
-export async function searchListings(searchTerm) {
+export async function searchListings(searchTerm = null) {
+  if (!searchTerm) {
+    const urlParams = new URLSearchParams(window.location.search);
+    searchTerm = urlParams.get("search");
+  }
+
   const listings = await listingMethods.getListings();
 
   if (listings && Array.isArray(listings.data)) {
-    const filteredListings = listings.data.filter((listing) => listing.title.toLowerCase().includes(searchTerm.toLowerCase()));
+    let filteredListings = listings.data;
+
+    if (searchTerm) {
+      filteredListings = listings.data.filter((listing) => listing.title.toLowerCase().includes(searchTerm.toLowerCase()));
+    }
 
     const container = document.querySelector("#listing");
 
@@ -32,3 +41,5 @@ if (searchInput) {
     searchListings(this.value);
   });
 }
+
+searchListings();
