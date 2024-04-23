@@ -1,6 +1,6 @@
 import { getListing, updateListing, removeListing } from "../api/listings/index.mjs";
 
-export async function updateListingFormListener() {
+export async function setUpdateListingFormListener() {
   const form = document.querySelector("#editListing");
 
   const url = new URL(location.href);
@@ -13,11 +13,21 @@ export async function updateListingFormListener() {
     button.disabled = true;
 
     const listing = await getListing(id);
+    console.log(listing);
 
-    form.title.value = listing.title;
-    form.body.value = listing.body;
-    form.tags.value = listing.tags;
-    form.media.value = listing.media;
+    form.title.value = listing.data.title;
+    form.description.value = listing.data.description;
+    form.tags.value = listing.data.tags;
+
+    listing.data.media.forEach((mediaItem, index) => {
+      const urlInput = document.querySelector(`#mediaUrl${index + 1}`);
+      const altInput = document.querySelector(`#mediaAlt${index + 1}`);
+
+      if (urlInput && altInput) {
+        urlInput.value = mediaItem.url;
+        altInput.value = mediaItem.alt;
+      }
+    });
 
     button.disabled = false;
 
@@ -36,7 +46,8 @@ export async function updateListingFormListener() {
       }
     });
 
-    deleteButton.addEventListener("click", async () => {
+    deleteButton.addEventListener("click", async (event) => {
+      event.preventDefault();
       const confirmation = window.confirm("Are you sure you want to delete this listing?");
       if (confirmation) {
         try {

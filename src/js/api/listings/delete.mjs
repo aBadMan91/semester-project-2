@@ -19,5 +19,7 @@ export async function removeListing(id) {
     throw new Error(`An error occurred while deleting the listing: ${response.status}`);
   }
 
-  return await response.json();
+  if (response.status !== 204) {
+    return await response.json();
+  }
 }
