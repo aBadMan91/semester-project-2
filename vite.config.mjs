@@ -1,27 +1,13 @@
 import { defineConfig } from "vite";
-import path from "path";
 
 export default defineConfig({
-  plugins: [],
-  resolve: {
-    alias: {
-      "/@/": path.resolve(__dirname, "./src"),
-    },
-  },
-  css: {
-    preprocessorOptions: {
-      scss: {
-        additionalData: `
-          @import "/src/scss/_variables.scss";
-          @import "/src/scss/styles.scss";
-        `,
-      },
-    },
+  server: {
+    port: 3000,
+    open: true,
   },
   build: {
-    outDir: "build",
+    outDir: "dist",
+    emptyOutDir: true,
   },
-  define: {
-    "import.meta.env.VITE_NOROFF_API_KEY": JSON.stringify(process.env.VITE_NOROFF_API_KEY),
-  },
+  plugins: [],
 });

@@ -5,12 +5,9 @@
   "description": "Auction website for semester project 2 (Noroff).",
   "main": "index.mjs",
   "scripts": {
-    "build:css": "sass src/scss:dist/css",
-    "build:js": "vite build",
-    "build": "npm run build:css && npm run build:js",
-    "watch": "sass --watch src/scss:dist/css & vite",
-    "start": "npm run build && vite",
-    "dev": "npm-run-all --parallel watch start"
+    "dev": "vite",
+    "build": "vite build",
+    "serve": "vite preview"
   },
   "keywords": [
     "CSS",

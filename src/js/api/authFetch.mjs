@@ -3,12 +3,10 @@ import { load } from "../storage/index.mjs";
 export function headers() {
   const token = load("token");
 
-  const apiKey = import.meta.env.VITE_NOROFF_API_KEY;
-
   return {
     "Content-Type": "application/json",
     Authorization: `Bearer ${token}`,
-    "X-Noroff-API-Key": apiKey,
+    "X-Noroff-API-Key": import.meta.env.VITE_NOROFF_API_KEY,
   };
 }
 
