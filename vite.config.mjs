@@ -21,4 +21,7 @@ export default defineConfig({
   build: {
     outDir: "build",
   },
+  define: {
+    "import.meta.env.VITE_NOROFF_API_KEY": JSON.stringify(process.env.VITE_NOROFF_API_KEY),
+  },
 });
