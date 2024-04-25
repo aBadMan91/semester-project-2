@@ -1,10 +1,25 @@
 import { defineConfig } from "vite";
-import dotenv from "dotenv";
-
-dotenv.config();
+import path from "path";
 
 export default defineConfig({
-  define: {
-    "import.meta.env.VITE_NOROFF_API_KEY": JSON.stringify(process.env.VITE_NOROFF_API_KEY),
+  plugins: [],
+  resolve: {
+    alias: {
+      "/@/": path.resolve(__dirname, "./src"),
+    },
+  },
+  css: {
+    preprocessorOptions: {
+      scss: {
+        additionalData: `
+          @import "/src/scss/_variables.scss";
+          @import "/src/scss/styles.scss";
+          @import "bootstrap/scss/bootstrap";
+        `,
+      },
+    },
+  },
+  build: {
+    outDir: "build",
   },
 });
