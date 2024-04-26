@@ -1,3 +1,4 @@
+import "/src/scss/styles.scss";
 import { load } from "../storage/index.mjs";
 import { authFetch } from "../api/authFetch.mjs";
 
@@ -34,7 +35,7 @@ function viewUserListingsHtml(listing) {
 
   const link = document.createElement("a");
   link.classList.add("card", "my-4");
-  link.href = `/listing/?title=${listing.title}&id=${listing.id}`;
+  link.href = `/src/listing/?title=${listing.title}&id=${listing.id}`;
   link.style.textDecoration = "none";
 
   const cardBody = document.createElement("div");
@@ -50,7 +51,7 @@ function viewUserListingsHtml(listing) {
   editButton.innerText = "Edit listing";
   editButton.onclick = function (event) {
     event.preventDefault();
-    window.location.href = `/listing/edit/?id=${listing.id}`;
+    window.location.href = `/src/listing/edit/?id=${listing.id}`;
   };
   editButton.classList.add("edit-button");
 

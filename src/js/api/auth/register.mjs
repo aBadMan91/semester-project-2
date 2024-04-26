@@ -21,7 +21,7 @@ export async function register(profile) {
 
   const result = await response.json();
 
-  windows.location.href = "/login/";
+  windows.location.href = "/src/login/";
 
   return result;
 }

@@ -12,7 +12,7 @@ export async function viewListings(sort = "newest") {
   }
 }
 
-if (window.location.pathname === "/listings/") {
+if (window.location.pathname === "/src/listings/") {
   document.querySelector("#selection").addEventListener("change", function () {
     viewListings(this.value);
   });

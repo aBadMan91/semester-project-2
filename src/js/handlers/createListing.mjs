@@ -23,7 +23,7 @@ export function setCreateListingFormListener() {
       try {
         const newListing = await createListing(listing);
 
-        window.location.href = `/listing/?title=${newListing.data.title}&id=${newListing.data.id}`;
+        window.location.href = `/src/listing/?title=${newListing.data.title}&id=${newListing.data.id}`;
       } catch (error) {
         alert(error.message);
       }

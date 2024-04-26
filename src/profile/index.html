@@ -4,28 +4,29 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="Northern Auction home page" />
-    <title>Northern Auction | Your bids</title>
+    <title>Northern Auction | Home</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" />
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous" defer></script>
-    <script type="module" src="/src/js/handlers/readUserBids.mjs" defer></script>
+    <script type="module" src="/src/js/index.mjs" defer></script>
   </head>
   <body>
     <header class="fixed-top border-bottom">
       <nav class="navbar navbar-expand-lg">
         <div class="container-fluid">
-          <a class="navbar-brand" href="/listings/">Northern Auction</a>
+          <a class="navbar-brand" href="/src/listings/">Northern Auction</a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
               <li class="nav-item">
-                <a class="nav-link active text-white" aria-current="page" href="/listings/">Home</a>
+                <a class="nav-link active text-white" aria-current="page" href="/src/listings/">Home</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link text-white" href="/profile/">My profile</a>
+                <a class="nav-link text-white" href="/src/profile/">My profile</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link text-white" href="/listing/create/">Create listing</a>
+                <a class="nav-link text-white" href="/src/listing/create/">Create listing</a>
               </li>
             </ul>
             <form class="d-flex" role="search" id="search-form">
@@ -37,20 +38,27 @@
       </nav>
     </header>
     <main class="d-flex align-items-center text-white">
-      <div class="container my-5 py-5">
+      <div class="container-fluid my-5 py-5">
         <div class="row justify-content-center">
+          <div class="col-md-4">
+            <div class="d-flex justify-content-evenly" id="profile-container"></div>
+          </div>
           <div class="col-md-9">
-            <div>
-              <a href="/listing/create/"><button class="btn btn-success">Create a new listing</button></a>
+            <div class="d-flex justify-content-center">
+              <a href="/src/profile/edit/" class="me-2"><button class="btn btn-success">Edit profile</button></a>
+              <a href=""><button id="logoutButton" class="btn btn-danger">Log Out</button></a>
             </div>
-            <div class="d-flex justify-content-between align-items-center mt-5">
-              <h1>Your bids</h1>
-              <select class="btn btn-primary" type="button" id="selection" aria-expanded="false">
-                <option value="newest">Newest</option>
-                <option value="oldest">Oldest</option>
-              </select>
+            <div class="d-grid col-5 mx-auto mt-5">
+              <a href="/src/profile/userlistings/" class="p-2 d-grid gap-2">
+                <button class="btn btn-secondary just d-flex justify-content-between fw-bold">Your listings<i class="bi bi-arrow-right-short"></i></button>
+              </a>
+              <a href="/src/profile/userlistingsbids/" class="p-2 d-grid gap-2">
+                <button class="btn btn-secondary just d-flex justify-content-between fw-bold">Your bids<i class="bi bi-arrow-right-short"></i></button>
+              </a>
+              <a href="/src/profile/userlistingswins/" class="p-2 d-grid gap-2">
+                <button class="btn btn-secondary just d-flex justify-content-between fw-bold">Your winning bids<i class="bi bi-arrow-right-short"></i></button>
+              </a>
             </div>
-            <div class="listings row" id="listing"></div>
           </div>
         </div>
       </div>

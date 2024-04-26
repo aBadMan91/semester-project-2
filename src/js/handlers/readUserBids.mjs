@@ -1,3 +1,4 @@
+import "/src/scss/styles.scss";
 import { load } from "../storage/index.mjs";
 import { authFetch } from "../api/authFetch.mjs";
 
@@ -34,7 +35,7 @@ function viewUserBidsHtml(bid) {
 
   const link = document.createElement("a");
   link.classList.add("card", "my-4");
-  link.href = `/listing/?title=${bid.listing.title}&id=${bid.listing.id}`;
+  link.href = `/src/listing/?title=${bid.listing.title}&id=${bid.listing.id}`;
   link.style.textDecoration = "none";
 
   const cardBody = document.createElement("div");

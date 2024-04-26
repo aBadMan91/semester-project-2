@@ -27,7 +27,7 @@ export async function login(profile) {
 
   storage.save("profile", data);
 
-  window.location.href = "/profile/";
+  window.location.href = "/src/profile/";
 }
 
 export async function logout() {
