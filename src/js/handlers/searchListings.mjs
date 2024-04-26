@@ -32,7 +32,7 @@ if (searchForm) {
   searchForm.addEventListener("submit", function (event) {
     event.preventDefault();
     const searchTerm = searchInput.value;
-    window.location.href = `/src/listings/?search=${encodeURIComponent(searchTerm)}`;
+    window.location.href = `/listings/?search=${encodeURIComponent(searchTerm)}`;
   });
 }
 

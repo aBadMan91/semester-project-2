@@ -53,7 +53,7 @@ export async function setUpdateListingFormListener() {
         try {
           await removeListing(id);
           alert("Listing has been deleted");
-          window.location.href = "/src/profile/";
+          window.location.href = "/profile/";
         } catch (error) {
           alert(error.message);
         }

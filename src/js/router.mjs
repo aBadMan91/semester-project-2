@@ -4,24 +4,24 @@ export default function router() {
   const path = location.pathname;
 
   switch (path) {
-    case "/src/profile/login/":
-    case "/src/profile/login/index.html":
+    case "/profile/login/":
+    case "/profile/login/index.html":
       listeners.setLoginFormListener();
       break;
-    case "/src/profile/register/":
-    case "/src/profile/register/index.html":
+    case "/profile/register/":
+    case "/profile/register/index.html":
       listeners.setRegisterFormListener();
       break;
-    case "/src/listing/create/":
-    case "/src/listing/create/index.html":
+    case "/listing/create/":
+    case "/listing/create/index.html":
       listeners.setCreateListingFormListener();
       break;
-    case "/src/listing/edit/":
-    case "/src/listing/edit/index.html":
+    case "/listing/edit/":
+    case "/listing/edit/index.html":
       listeners.setUpdateListingFormListener();
       break;
-    case "/src/profile/edit/":
-    case "/src/profile/edit/index.html":
+    case "/profile/edit/":
+    case "/profile/edit/index.html":
       listeners.setUpdateProfileFormListener();
       break;
   }

@@ -4,7 +4,7 @@ export function listingTemplate(listingData) {
 
   const link = document.createElement("a");
   link.classList.add("card", "my-4");
-  link.href = `/src/listing/?title=${listingData.title}&id=${listingData.id}`;
+  link.href = `/listing/?title=${listingData.title}&id=${listingData.id}`;
   link.style.textDecoration = "none";
   link.style.height = "400px";
 
