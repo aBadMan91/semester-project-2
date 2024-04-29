@@ -2,14 +2,15 @@ import { API_AUCTION_URL } from "../api/constants.mjs";
 import { getListing } from "../api/listings/read.mjs";
 import { placeBid } from "../api/listings/bid.mjs";
 
-const listingContainer = document.querySelector(".container");
+const listingContainer = document.querySelector("#listing-container");
+listingContainer.classList.add("d-flex", "flex-column", "justify-content-center");
 const queryString = window.location.search;
 const params = new URLSearchParams(queryString);
 const id = params.get("id");
 
 const title = params.get("title");
 
-document.title = title;
+document.title = "Northern Auction" + " | " + " " + title;
 
 const url = `${API_AUCTION_URL}/listings/${id}?_seller=true&_bids=true`;
 console.log(url);
@@ -24,18 +25,44 @@ async function viewListing() {
 viewListing();
 
 export function createListingHtml(listing) {
+  const mainImageContainer = document.createElement("div");
+  mainImageContainer.classList.add("d-flex", "align-items-center", "col-md-8", "mx-auto");
+
+  const mainImage = document.createElement("img");
+  mainImage.classList.add("img-fluid");
+  mainImage.style.borderRadius = "0.25rem";
+  mainImageContainer.appendChild(mainImage);
+
+  const thumbnailContainer = document.createElement("div");
+  thumbnailContainer.classList.add("d-flex", "justify-content-center");
+
   if (listing.data.media) {
-    listing.data.media.forEach((media) => {
+    listing.data.media.forEach((media, index) => {
+      if (index === 0) {
+        mainImage.src = media.url;
+        return;
+      }
+
       const img = document.createElement("img");
       img.src = media.url;
       img.alt = media.alt;
-      img.classList.add("img-fluid");
-      listingContainer.appendChild(img);
+      img.classList.add("img-thumbnail", "my-2");
+      img.style.cursor = "pointer";
+      img.style.maxWidth = "200px";
+      img.addEventListener("click", function () {
+        const oldMainImageSrc = mainImage.src;
+        mainImage.src = this.src;
+        this.src = oldMainImageSrc;
+      });
+      thumbnailContainer.appendChild(img);
     });
   }
 
+  listingContainer.appendChild(mainImageContainer);
+  listingContainer.appendChild(thumbnailContainer);
+
   const listingContent = document.createElement("div");
-  listingContent.classList.add("listing-content");
+  listingContent.classList.add("listing-content", "col-md-8", "mx-auto");
   listingContainer.appendChild(listingContent);
 
   const heading = document.createElement("h1");

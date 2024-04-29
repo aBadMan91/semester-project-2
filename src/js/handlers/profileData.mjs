@@ -44,8 +44,8 @@ export function createProfileHtml(profile) {
   bio.textContent = profile.data.bio;
 
   const credits = document.createElement("p");
-  credits.classList.add("card-text", "text-white");
-  credits.innerHTML = "Credits: <span class='fst-italic'>" + profile.data.credits + "</span>";
+  credits.classList.add("card-text", "text-white", "fst-italic");
+  credits.innerHTML = "Credits:" + " " + profile.data.credits;
 
   cardBody.append(name, email, bio, credits);
   card.append(img, cardBody);
