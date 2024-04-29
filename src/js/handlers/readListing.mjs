@@ -34,7 +34,7 @@ export function createListingHtml(listing) {
   mainImageContainer.appendChild(mainImage);
 
   const thumbnailContainer = document.createElement("div");
-  thumbnailContainer.classList.add("d-flex", "justify-content-center");
+  thumbnailContainer.classList.add("d-flex", "flex-wrap", "justify-content-center");
 
   if (listing.data.media) {
     listing.data.media.forEach((media, index) => {
@@ -46,9 +46,10 @@ export function createListingHtml(listing) {
       const img = document.createElement("img");
       img.src = media.url;
       img.alt = media.alt;
-      img.classList.add("img-thumbnail", "my-2");
+      img.classList.add("img-thumbnail", "my-2", "mx-1");
       img.style.cursor = "pointer";
-      img.style.maxWidth = "200px";
+      img.style.maxWidth = "150px";
+      img.style.padding = "0";
       img.addEventListener("click", function () {
         const oldMainImageSrc = mainImage.src;
         mainImage.src = this.src;
@@ -73,14 +74,14 @@ export function createListingHtml(listing) {
   seller.innerText = `Seller: ${listing.data.seller.name}`;
   listingContent.appendChild(seller);
 
-  const startDateHeading = document.createElement("h2");
+  const startDateHeading = document.createElement("h4");
   const startDate = new Date(listing.data.created);
   const startOptions = { year: "numeric", month: "long", day: "numeric", hour: "2-digit", minute: "2-digit" };
   const formattedStartDate = startDate.toLocaleString(undefined, startOptions);
   startDateHeading.textContent = `Listing created: ${formattedStartDate}`;
   listingContent.appendChild(startDateHeading);
 
-  const endDateHeading = document.createElement("h2");
+  const endDateHeading = document.createElement("h4");
   const endDate = new Date(listing.data.endsAt);
   const endOptions = { year: "numeric", month: "long", day: "numeric", hour: "2-digit", minute: "2-digit" };
   const formattedEndDate = endDate.toLocaleString(undefined, endOptions);

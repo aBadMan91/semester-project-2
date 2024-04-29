@@ -48,7 +48,7 @@ function viewUserBidsHtml(bid) {
 
   const bidAmount = document.createElement("p");
   bidAmount.classList.add("card-bid");
-  bidAmount.innerText = `Your bid ${bid.amount} credits.`;
+  bidAmount.innerText = `You bid ${bid.amount} credits.`;
 
   cardBody.appendChild(title);
   cardBody.appendChild(bidAmount);

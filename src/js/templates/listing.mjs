@@ -18,7 +18,7 @@ export function listingTemplate(listingData) {
 
   const sellerName = document.createElement("p");
   sellerName.classList.add("card-text");
-  sellerName.innerText = `By seller: ${listingData.seller.name}`;
+  sellerName.innerText = `Seller: ${listingData.seller.name}`;
 
   const startDateText = document.createElement("p");
   startDateText.classList.add("card-text");
