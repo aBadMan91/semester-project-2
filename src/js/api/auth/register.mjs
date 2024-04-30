@@ -5,6 +5,15 @@ const method = "post";
 
 export async function register(profile) {
   const registerURL = API_HOST_URL + action;
+
+  if (!profile.bio) {
+    delete profile.bio;
+  }
+
+  if (!profile.avatar || !profile.avatar.url || !profile.avatar.alt) {
+    delete profile.avatar;
+  }
+
   const body = JSON.stringify(profile);
 
   const response = await fetch(registerURL, {
@@ -21,7 +30,10 @@ export async function register(profile) {
 
   const result = await response.json();
 
-  windows.location.href = "/login/";
+  result.bio = result.bio || "Default Bio";
+  result.avatar = result.avatar || { url: "https://picsum.photos/id/26/4209/2769", alt: "Default Alt Text" };
+
+  window.location.href = "/profile/login/";
 
   return result;
 }
