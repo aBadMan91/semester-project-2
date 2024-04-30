@@ -38,15 +38,10 @@ export async function logout() {
   window.location.href = "/";
 }
 
-// Try to implement logged in check and redirect to appropriate homepage.
+export function requireLogin() {
+  const token = storage.load("token");
 
-// export function isLoggedIn() {
-//   const token = storage.load("token");
-//   return token !== null;
-// }
-
-// export function redirectToAppropriateHomepage() {
-//   if (isLoggedIn()) {
-//     window.location.href = "/listings/";
-//   }
-// }
+  if (!token) {
+    throw new Error("Not logged in");
+  }
+}
