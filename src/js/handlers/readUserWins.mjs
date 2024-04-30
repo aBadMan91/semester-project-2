@@ -46,8 +46,8 @@ function viewUserWinsHtml(bid) {
   const cardBody = document.createElement("div");
   cardBody.classList.add("card-body");
 
-  const title = document.createElement("h5");
-  title.classList.add("card-title");
+  const title = document.createElement("h2");
+  title.classList.add("card-title", "h5");
   title.innerText = `${bid.listing.title}`;
   title.style.textDecoration = "underline";
 

@@ -19,7 +19,7 @@
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
               <li class="nav-item">
-                <a class="nav-link active text-white" aria-current="page" href="/">Home</a>
+                <a class="nav-link active text-white" href="/">Home</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link text-white" href="/src/profile/login/">My profile</a>
@@ -43,24 +43,24 @@
             <form id="registerForm">
               <h1 class="h3 mb-3 fw-bold">Required *</h1>
               <div class="form-group mb-3">
-                <label for="">Name: *</label>
-                <input class="form-control" type="text" name="name" required pattern="^[\w]+$" title="User name must only contain lower case and upper case letters, numbers and underscore (_). Example: My_Username_23." />
+                <label for="name">Name: *</label>
+                <input class="form-control" type="text" id="name" name="name" required pattern="^[\w]+$" title="User name must only contain lower case and upper case letters, numbers and underscore (_). Example: My_Username_23." />
               </div>
               <div class="form-group mb-3">
-                <label for="">Email: *</label>
-                <input class="form-control" type="email" name="email" required pattern="^[\w\-.]+@(stud\.)?noroff\.no$" title="@(stud.)noroff.no are the only domains allowed to register." />
+                <label for="email">Email: *</label>
+                <input class="form-control" type="email" id="email" name="email" required pattern="^[\w\-.]+@(stud\.)?noroff\.no$" title="@(stud.)noroff.no are the only domains allowed to register." />
               </div>
               <div class="form-group mb-3">
-                <label for="">Password: *</label>
-                <input class="form-control" type="password" name="password" required minlength="8" />
+                <label for="password">Password: *</label>
+                <input class="form-control" type="password" id="password" name="password" required minlength="8" />
               </div>
               <div class="form-group mb-3">
-                <label for="">Bio:</label>
-                <textarea class="form-control" name="bio"></textarea>
+                <label for="bio">Bio:</label>
+                <textarea class="form-control" id="bio" name="bio"></textarea>
               </div>
               <div class="form-group mb-3">
-                <label for="">Avatar:</label>
-                <input class="form-control" type="url" name="avatar" />
+                <label for="avatar">Avatar:</label>
+                <input class="form-control" type="url" id="avatar" name="avatar" />
               </div>
               <button class="btn btn-success">Register</button>
             </form>

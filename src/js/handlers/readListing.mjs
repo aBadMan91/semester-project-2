@@ -40,6 +40,7 @@ export function createListingHtml(listing) {
     listing.data.media.forEach((media, index) => {
       if (index === 0) {
         mainImage.src = media.url;
+        mainImage.alt = media.alt;
         return;
       }
 
@@ -74,14 +75,16 @@ export function createListingHtml(listing) {
   seller.innerText = `Seller: ${listing.data.seller.name}`;
   listingContent.appendChild(seller);
 
-  const startDateHeading = document.createElement("h4");
+  const startDateHeading = document.createElement("h2");
+  startDateHeading.classList.add("h4");
   const startDate = new Date(listing.data.created);
   const startOptions = { year: "numeric", month: "long", day: "numeric", hour: "2-digit", minute: "2-digit" };
   const formattedStartDate = startDate.toLocaleString(undefined, startOptions);
   startDateHeading.textContent = `Listing created: ${formattedStartDate}`;
   listingContent.appendChild(startDateHeading);
 
-  const endDateHeading = document.createElement("h4");
+  const endDateHeading = document.createElement("h2");
+  endDateHeading.classList.add("h4");
   const endDate = new Date(listing.data.endsAt);
   const endOptions = { year: "numeric", month: "long", day: "numeric", hour: "2-digit", minute: "2-digit" };
   const formattedEndDate = endDate.toLocaleString(undefined, endOptions);
@@ -98,6 +101,7 @@ export function createListingHtml(listing) {
   bidInput.min = "0";
   bidInput.placeholder = "Enter your bid";
   bidInput.classList.add("form-control-sm", "my-2");
+  bidInput.setAttribute("aria-label", "Enter your bid");
   bidInputDiv.appendChild(bidInput);
   listingContent.appendChild(bidInputDiv);
 

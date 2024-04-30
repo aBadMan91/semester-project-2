@@ -41,13 +41,27 @@ function viewUserListingsHtml(listing) {
   const cardBody = document.createElement("div");
   cardBody.classList.add("card-body");
 
-  const title = document.createElement("h5");
-  title.classList.add("card-title");
+  const title = document.createElement("h2");
+  title.classList.add("card-title", "h5");
   title.innerText = `${listing.title}`;
   title.style.textDecoration = "underline";
 
+  const startDateText = document.createElement("p");
+  startDateText.classList.add("card-text");
+  const startDate = new Date(listing.created);
+  const startOptions = { year: "numeric", month: "long", day: "numeric", hour: "2-digit", minute: "2-digit" };
+  const formattedStartDate = startDate.toLocaleString(undefined, startOptions);
+  startDateText.innerText = `Created: ${formattedStartDate}`;
+
+  const endDateText = document.createElement("p");
+  endDateText.classList.add("card-text");
+  const endDate = new Date(listing.endsAt);
+  const endOptions = { year: "numeric", month: "long", day: "numeric", hour: "2-digit", minute: "2-digit" };
+  const formattedEndDate = endDate.toLocaleString(undefined, endOptions);
+  endDateText.innerText = `Ending: ${formattedEndDate}`;
+
   const editButton = document.createElement("button");
-  editButton.classList.add("btn", "btn-primary");
+  editButton.classList.add("btn", "btn-success");
   editButton.innerText = "Edit listing";
   editButton.onclick = function (event) {
     event.preventDefault();
@@ -55,8 +69,7 @@ function viewUserListingsHtml(listing) {
   };
   editButton.classList.add("edit-button");
 
-  cardBody.appendChild(title);
-  cardBody.appendChild(editButton);
+  cardBody.append(title, startDateText, endDateText, editButton);
   link.appendChild(cardBody);
   listingContainer.appendChild(link);
 

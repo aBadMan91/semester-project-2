@@ -19,13 +19,13 @@
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
               <li class="nav-item">
-                <a class="nav-link active text-white" aria-current="page" href="/listings/">Home</a>
+                <a class="nav-link active text-white" href="/listings/">Home</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link text-white" href="/profile/">My profile</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link text-white" href="/listing/create/">Create listing</a>
+                <a class="nav-link text-white" aria-current="page" href="/listing/create/">Create listing</a>
               </li>
             </ul>
             <form class="d-flex" role="search" id="search-form">
@@ -41,18 +41,18 @@
         <div class="row justify-content-center">
           <div class="col-12 col-md-5">
             <form id="createListing">
-              <h2 class="mb-3 fw-bold">Required *</h2>
+              <h1 class="h2 mb-3 fw-bold">Required *</h1>
               <div class="form-group mb-3">
-                <label for="">Title: *</label>
-                <input class="form-control" type="text" name="title" required />
+                <label for="title">Title: *</label>
+                <input class="form-control" type="text" id="title" name="title" required />
               </div>
               <div class="form-group mb-3">
-                <label for="">Description: *</label>
-                <textarea class="form-control" name="description" required></textarea>
+                <label for="description">Description: *</label>
+                <textarea class="form-control" id="description" name="description" required></textarea>
               </div>
               <div class="form-group mb-3">
-                <label for="">Tags:</label>
-                <input class="form-control mb-5" type="text" name="tags" />
+                <label for="tags">Tags:</label>
+                <input class="form-control mb-5" type="text" id="tags" name="tags" />
               </div>
               <div class="d-flex justify-content-center align-items-center">
                 <div class="form-group mb-3 col-md-5">
@@ -89,8 +89,8 @@
               </div>
               <div class="d-flex justify-content-center align-items-center">
                 <div class="form-group mb-3 col-md-5">
-                  <label for="">Ends at: *</label>
-                  <input class="form-control" type="datetime-local" name="endsAt" required />
+                  <label for="endsAt">Ends at: *</label>
+                  <input class="form-control" type="datetime-local" id="endsAt" name="endsAt" required />
                 </div>
               </div>
               <button class="btn btn-success">Create Listing</button>
