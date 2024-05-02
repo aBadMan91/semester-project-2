@@ -8,11 +8,11 @@ In this semester project we were tasked with creating an auction website using t
 
 This auction application you can.
 
-- **Register and login:** using a "stud.noroff.no" email account. All registered users starts with 1000 credits to use for bidding on listings.
+- **Register and login:** Using a "stud.noroff.no" email account. All registered users starts with 1000 credits to use for bidding on listings.
 - **View and bid on listings**: You can view other listings and bid on them using credits.
 - **Search and sort listings**: You can search for a specific listing, and sort by newest or oldest listings.
 - **Manage your listings**: Create, edit and delete your own listings.
-- **Edit profile:** bio and avatar (profile picture).
+- **Edit profile:** Bio and avatar (profile picture).
 
 ## Installation
 
