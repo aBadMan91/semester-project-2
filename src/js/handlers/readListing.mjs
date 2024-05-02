@@ -107,7 +107,7 @@ export function createListingHtml(listing) {
 
   const bidButtonDiv = document.createElement("div");
   const bidButton = document.createElement("button");
-  bidButton.classList.add("btn", "btn-primary", "mb-4");
+  bidButton.classList.add("btn", "btn-success", "mb-4");
   bidButton.innerText = "Bid Now";
   bidButtonDiv.appendChild(bidButton);
   listingContent.appendChild(bidButtonDiv);
