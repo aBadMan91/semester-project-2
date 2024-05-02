@@ -17,23 +17,25 @@ export async function viewListings(sort = "newest", page = 1) {
   currentPage = listings.meta.currentPage;
   currentSort = sort;
 
-  document.querySelector("#prevPageButton").disabled = listings.meta.isFirstPage;
-  document.querySelector("#nextPageButton").disabled = listings.meta.isLastPage;
+  if (window.location.pathname === "/listings/" || window.location.pathname === "/") {
+    document.querySelector("#prevPageButton").disabled = listings.meta.isFirstPage;
+    document.querySelector("#nextPageButton").disabled = listings.meta.isLastPage;
+  }
 }
 
-document.querySelector("#prevPageButton").addEventListener("click", function () {
-  if (currentPage > 1) {
-    viewListings(currentSort, currentPage - 1);
+if (window.location.pathname === "/listings/" || window.location.pathname === "/") {
+  document.querySelector("#prevPageButton").addEventListener("click", function () {
+    if (currentPage > 1) {
+      viewListings(currentSort, currentPage - 1);
+      window.scrollTo(0, 0);
+    }
+  });
+
+  document.querySelector("#nextPageButton").addEventListener("click", function () {
+    viewListings(currentSort, currentPage + 1);
     window.scrollTo(0, 0);
-  }
-});
+  });
 
-document.querySelector("#nextPageButton").addEventListener("click", function () {
-  viewListings(currentSort, currentPage + 1);
-  window.scrollTo(0, 0);
-});
-
-if (window.location.pathname === "/listings/") {
   document.querySelector("#selection").addEventListener("change", function () {
     viewListings(this.value, 1);
   });

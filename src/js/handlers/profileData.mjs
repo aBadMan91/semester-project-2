@@ -7,12 +7,16 @@ export async function fetchProfileData() {
 
   const profileContainer = document.querySelector("#profile-container");
   const profileHtml = createProfileHtml(profile);
-  profileContainer.appendChild(profileHtml);
+  if (window.location.pathname === "/profile/") {
+    profileContainer.appendChild(profileHtml);
+  }
 
   return profile;
 }
 
-fetchProfileData();
+if (window.location.pathname === "/profile/") {
+  fetchProfileData();
+}
 
 export function createProfileHtml(profile) {
   const profileContainer = document.createElement("div");
