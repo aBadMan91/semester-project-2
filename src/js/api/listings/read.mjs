@@ -3,8 +3,8 @@ import { authFetch } from "../authFetch.mjs";
 
 const action = "/listings";
 
-export async function getListings(sort = "newest", query = null) {
-  let updateListingUrl = `${API_AUCTION_URL}${action}?_seller=true&_active=true`;
+export async function getListings(sort = "newest", page = 1, query = null) {
+  let updateListingUrl = `${API_AUCTION_URL}${action}?limit=30&page=${page}&_seller=true&_bids=true`;
 
   if (sort === "newest") {
     updateListingUrl += "&sort=updated&sortOrder=desc";
