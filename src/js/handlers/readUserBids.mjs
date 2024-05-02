@@ -13,7 +13,6 @@ export async function fetchUserBids() {
     }
 
     const listings = await response.json();
-    console.log(listings);
 
     const listingContainer = document.querySelector("#listing");
     listings.data.forEach((listing) => {

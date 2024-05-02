@@ -13,11 +13,9 @@ const title = params.get("title");
 document.title = "Northern Auction" + " | " + " " + title;
 
 const url = `${API_AUCTION_URL}/listings/${id}?_seller=true&_bids=true`;
-console.log(url);
 
 async function viewListing() {
   const listingData = await getListing(id);
-  console.log(listingData);
 
   createListingHtml(listingData);
 }

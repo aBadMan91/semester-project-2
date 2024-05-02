@@ -13,7 +13,6 @@ export async function setUpdateListingFormListener() {
     button.disabled = true;
 
     const listing = await getListing(id);
-    console.log(listing);
 
     form.title.value = listing.data.title;
     form.description.value = listing.data.description;

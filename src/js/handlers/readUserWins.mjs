@@ -13,7 +13,6 @@ export async function fetchUserWins() {
     }
 
     const listings = await response.json();
-    console.log(listings);
 
     const listingContainer = document.querySelector("#listing");
 

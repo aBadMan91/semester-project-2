@@ -6,7 +6,6 @@ let currentSort = "newest";
 
 export async function viewListings(sort = "newest", page = 1) {
   const listings = await listingMethods.getListings(sort, page);
-  console.log(listings);
   const container = document.querySelector(".listings");
 
   if (container) {
