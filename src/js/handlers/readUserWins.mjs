@@ -50,12 +50,27 @@ function viewUserWinsHtml(bid) {
   title.innerText = `${bid.listing.title}`;
   title.style.textDecoration = "underline";
 
+  const endDateText = document.createElement("p");
+  endDateText.classList.add("card-text");
+  const endDate = new Date(bid.listing.endsAt);
+  const endOptions = { year: "numeric", month: "long", day: "numeric", hour: "2-digit", minute: "2-digit" };
+  const ended = new Date();
+  let endDateTextContent;
+  if (endDate < ended) {
+    const endedDate = endDate.toLocaleString(undefined, endOptions);
+    endDateTextContent = `Ended: ${endedDate}`;
+  } else {
+    const endingDate = endDate.toLocaleString(undefined, endOptions);
+    endDateTextContent = `Listing ending: ${endingDate}`;
+  }
+
+  endDateText.innerText = endDateTextContent;
+
   const bidAmount = document.createElement("p");
   bidAmount.classList.add("card-bid");
   bidAmount.innerText = `Your bid ${bid.amount} credits.`;
 
-  cardBody.appendChild(title);
-  cardBody.appendChild(bidAmount);
+  cardBody.append(title, endDateText, bidAmount);
   link.appendChild(cardBody);
   listingContainer.appendChild(link);
 

@@ -66,10 +66,12 @@ export function createListingHtml(listing) {
   listingContainer.appendChild(listingContent);
 
   const heading = document.createElement("h1");
+  heading.classList.add("fw-bold");
   heading.textContent = `${listing.data.title}`;
   listingContent.appendChild(heading);
 
   const seller = document.createElement("p");
+  seller.classList.add("fst-italic");
   seller.innerText = `Seller: ${listing.data.seller.name}`;
   listingContent.appendChild(seller);
 
@@ -85,11 +87,20 @@ export function createListingHtml(listing) {
   endDateHeading.classList.add("h4");
   const endDate = new Date(listing.data.endsAt);
   const endOptions = { year: "numeric", month: "long", day: "numeric", hour: "2-digit", minute: "2-digit" };
-  const formattedEndDate = endDate.toLocaleString(undefined, endOptions);
-  endDateHeading.textContent = `Listing ending: ${formattedEndDate}`;
+  const ended = new Date();
+  let endDateTextContent;
+  if (endDate < ended) {
+    const endedDate = endDate.toLocaleString(undefined, endOptions);
+    endDateTextContent = `Ended: ${endedDate}`;
+  } else {
+    const endingDate = endDate.toLocaleString(undefined, endOptions);
+    endDateTextContent = `Listing ending: ${endingDate}`;
+  }
+  endDateHeading.textContent = endDateTextContent;
   listingContent.appendChild(endDateHeading);
 
   const bids = document.createElement("p");
+  bids.classList.add("fst-italic");
   bids.textContent = `Number of bids: ${listing.data._count.bids}`;
   listingContent.appendChild(bids);
 
@@ -100,6 +111,10 @@ export function createListingHtml(listing) {
   bidInput.placeholder = "Enter your bid";
   bidInput.classList.add("form-control-sm", "my-2");
   bidInput.setAttribute("aria-label", "Enter your bid");
+  if (ended > endDate) {
+    bidInput.disabled = true;
+    bidInput.classListadd("disabled");
+  }
   bidInputDiv.appendChild(bidInput);
   listingContent.appendChild(bidInputDiv);
 
@@ -107,6 +122,10 @@ export function createListingHtml(listing) {
   const bidButton = document.createElement("button");
   bidButton.classList.add("btn", "btn-success", "mb-4");
   bidButton.innerText = "Bid Now";
+  if (ended > endDate) {
+    bidButton.disabled = true;
+    bidButton.classListadd("disabled");
+  }
   bidButtonDiv.appendChild(bidButton);
   listingContent.appendChild(bidButtonDiv);
 

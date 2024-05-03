@@ -17,7 +17,7 @@ export function listingTemplate(listingData) {
   title.style.textDecoration = "underline";
 
   const sellerName = document.createElement("p");
-  sellerName.classList.add("card-text");
+  sellerName.classList.add("card-text", "fst-italic");
   sellerName.innerText = `Seller: ${listingData.seller.name}`;
 
   const startDateText = document.createElement("p");
