@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Northern Auction home page and listings for non registered or logged in user" />
+    <title>Northern Auction | Home</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" />
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous" defer></script>
+    <script type="module" src="/src/js/index.mjs" defer></script>
+  </head>
+  <body>
+    <header class="fixed-top border-bottom">
+      <nav class="navbar navbar-expand-lg">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="/">Northern Auction</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active text-white" aria-current="page" href="/">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link text-white" href="/profile/login/">My profile</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link text-white" href="/profile/login/">Create listing</a>
+              </li>
+            </ul>
+            <form class="d-flex" role="search" id="search-form">
+              <input id="search" class="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
+              <button class="btn btn-primary border" type="submit">Search</button>
+            </form>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <main class="d-flex align-items-center text-white">
+      <div class="container my-5 py-5">
+        <div class="row justify-content-center">
+          <div class="col-md-4">
+            <h1 class="h3 mb-3">Welcome to Northern Auction. Sign in to bid or create listings.</h1>
+            <div class="d-flex justify-content-evenly">
+              <a href="/profile/login/"><button class="btn btn-lg btn-secondary btn-block">Sign in</button></a>
+              <a href="/profile/register/"><button class="btn btn-lg btn-secondary btn-block">Register</button></a>
+            </div>
+          </div>
+          <div class="col-md-9 my-5 py-5">
+            <div class="d-flex justify-content-between align-items-center mt-5">
+              <h1 class="fw-bold">Listings</h1>
+              <select class="btn btn-primary" id="selection" aria-expanded="false" aria-label="Choose a sorting option:">
+                <option value="newest">Newest</option>
+                <option value="oldest">Oldest</option>
+              </select>
+            </div>
+            <div class="listings row" id="listing"></div>
+            <div class="d-flex justify-content-between">
+              <button id="prevPageButton" class="btn btn-primary mt-3"><i class="bi bi-arrow-left-short"></i>Previous Page</button>
+              <button id="nextPageButton" class="btn btn-primary mt-3">Next Page<i class="bi bi-arrow-right-short"></i></button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <footer class="fixed-bottom text-white">
+      <div class="justify-content-center border-top p-2">
+        <p class="text-center">© 2024 Northern Auction</p>
+      </div>
+    </footer>
+  </body>
+</html>

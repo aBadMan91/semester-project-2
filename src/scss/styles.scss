@@ -1,0 +1,37 @@
+@import "variables";
+@import "../../node_modules/bootstrap/scss/bootstrap";
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: $body-color;
+}
+
+.navbar-brand {
+  font-family: "Arial Black", sans-serif;
+  color: #fff;
+}
+
+header,
+.navbar {
+  background-color: $header-color;
+}
+
+footer {
+  background-color: $footer-color;
+}
+
+.form-control:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.card {
+  background-color: $header-color;
+  color: #fff;
+}
+
+#selection {
+  background-color: $header-color;
+  text-align: left;
+  border: none;
+}
