@@ -7,7 +7,7 @@ export async function searchListings(searchTerm = null) {
     searchTerm = urlParams.get("search");
   }
 
-  const listings = await listingMethods.getListings();
+  const listings = await listingMethods.getListings("newest", 1, searchTerm);
 
   if (listings && Array.isArray(listings.data)) {
     let filteredListings = listings.data;
