@@ -1,10 +1,10 @@
 import { API_AUCTION_URL } from "../constants.mjs";
 import { authFetch } from "../authFetch.mjs";
 
-const action = "/listings";
+const action = "/listings/";
 
 export async function getListings(sort = "newest", page = 1, query = null) {
-  let updateListingUrl = `${API_AUCTION_URL}${action}?limit=30&page=${page}&_seller=true&_bids=true`;
+  let updateListingUrl = `${API_AUCTION_URL}${action}?limit=30&page=${page}&_seller=true&_bids=true&_active=true`;
 
   if (sort === "newest") {
     updateListingUrl += "&sort=updated&sortOrder=desc";
@@ -13,7 +13,7 @@ export async function getListings(sort = "newest", page = 1, query = null) {
   }
 
   if (query) {
-    updateListingUrl += `&search?q=${query}`;
+    updateListingUrl = `https://v2.api.noroff.dev/auction/listings/search?_seller=true&_bids=true&q=${query}`;
   }
 
   const response = await authFetch(updateListingUrl);
