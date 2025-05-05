@@ -1,4 +1,6 @@
-# Semester Project 2 - Noroff - 2024
+# Northern Auction - Semester Project 2 - Noroff - 2024
+
+<img src="./img/Northern-Auction.jpg" alt="Image of Northern Auction website" width="500" />
 
 ## Description
 
